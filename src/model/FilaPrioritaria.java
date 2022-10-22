@@ -16,10 +16,7 @@ public class FilaPrioritaria<K,V> implements ColaDePrioridad<K>, Heap<K> {
         buildMaxHeap();
         for(int i=PreorityQ.size()-1; i>=0; i--){
             Node<K,V> swap= PreorityQ.get(0);
-            /*
-            arr[0]=arr[i];
-            arr[i]=swap;
-             */
+
             PreorityQ.set(0,PreorityQ.get(i));
             PreorityQ.set(i,swap);
             n--;
@@ -49,11 +46,7 @@ public class FilaPrioritaria<K,V> implements ColaDePrioridad<K>, Heap<K> {
 
 
         if (largest != i) {
-            /*
-            int swap = PreorityQ[i];
-            PreorityQ[i] = PreorityQ[largest];
-            PreorityQ[largest] = swap;
-            */
+
             Node<K,V> swap= PreorityQ.get(i);
             PreorityQ.set(i,PreorityQ.get(largest));
             PreorityQ.set(largest,swap);
@@ -91,17 +84,16 @@ public class FilaPrioritaria<K,V> implements ColaDePrioridad<K>, Heap<K> {
             return;
         }
 
-        //PreorityQ[i]=key;
-        //PreorityQ.set(i,key);
+
         PreorityQ.get(i).setPriority(key);
 
 
         while(i>0 && PreorityQ.get(i/2).getPriority()<PreorityQ.get(i).getPriority()){
             Node<K,V> swap=PreorityQ.get(i);
-            //PreorityQ[i]=PreorityQ[i/2];
+
             PreorityQ.set(i,PreorityQ.get(i/2));
             PreorityQ.set(i/2, swap);
-            //PreorityQ[i/2]=swap;
+
             i=i/2;
         }
     }
@@ -109,7 +101,7 @@ public class FilaPrioritaria<K,V> implements ColaDePrioridad<K>, Heap<K> {
     public void insert(K element, int key){
         n++;
         V nose=null;
-        //ProrityQ.add(Integer.MAX_VALUE);
+
         Node<K,V> node= new Node<>(element,nose,Integer.MIN_VALUE);
         PreorityQ.add(node);
         increaseKey(n-1,key);
