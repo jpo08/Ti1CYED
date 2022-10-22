@@ -3,7 +3,7 @@ import model.Node;
 
 import java.util.ArrayList;
 
-public class FilaPrioritaria<K,V> implements PriorityQueue<K>, Heap<K> {
+public class FilaPrioritaria<K,V> implements ColaDePrioridad<K>, Heap<K> {
     private ArrayList<Node<K,V>> PreorityQ;
     private int n;
 
